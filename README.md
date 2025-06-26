@@ -2,10 +2,6 @@
 
 Interactive Tkinter GUI for rapid Tauc and Urbach analysis with **live preview**, dynamic legend, full data + fit export and sample-thickness support.
 
-<p align="center">
-  <img src="assets/demo.gif" alt="Demo animation" width="700">
-</p>
-
 ---
 
 ## Features
@@ -63,7 +59,7 @@ pip install -r requirements.txt
 ## Quick Start
 
 ```bash
-py -3.13 main.py
+python main.py
 ```
 
 ---
@@ -73,9 +69,15 @@ py -3.13 main.py
 1. **Prepare a CSV/XLSX**
 
    ```text
-   lambda_nm, T_%, R_%, …
-   300, 87.2, 9.5, …
-   310, 86.9, 9.8, …
+   wavelength_nm, T_%, …
+   300, 87.2, …
+   310, 86.9, …
+   ```
+   **and**
+   ```text
+   wavelength_nm, R_%, …
+   300, 9.5, …
+   310, 9.8, …
    ```
    Only a wavelength column is mandatory. Percentages must be **0 – 100 %**.
 
@@ -99,7 +101,7 @@ py -3.13 main.py
 | Column | When it appears | Meaning |
 |--------|-----------------|---------|
 | `Energy_eV` | always | 1240 / λ (nm) |
-| `T/(1-R)_or_T` | when T & R loaded | Corrected transmittance |
+| `T/(1-R)_or_T` | when T or T & R loaded | Corrected transmittance / transmittance |
 | `alpha` | always | Absorption coefficient (cm⁻¹) |
 | `y_tauc`   | after a Tauc plot   | (α E)ⁿ – points used for the linear fit |
 | `ln_alpha` | after an Urbach plot| ln\|α\| – natural log of the absorption coefficient |                     |
